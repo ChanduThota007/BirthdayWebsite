@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Memory Admin</title>
+
+    <link
+        rel="stylesheet"
+        href="../css/admin.css"
+    >
+
+</head>
+
+
+<body>
+
+    <main class="admin-page">
+
+        <header class="admin-header">
+
+            <p>ADMIN PANEL</p>
+
+            <h1>Memory Manager</h1>
+
+            <span>
+                Manage your memories
+            </span>
+
+        </header>
+
+
+        <section class="year-section">
+
+            <label for="yearSelect">
+                SELECT YEAR
+            </label>
+
+            <select id="yearSelect">
+
+                <option value="2026">
+                    2026
+                </option>
+
+            </select>
+
+        </section>
+
+
+        <section
+            id="memoryList"
+            class="memory-list"
+        >
+        </section>
+
+
+        <button
+            id="addMemoryBtn"
+            class="add-memory-btn"
+        >
+            + ADD MEMORY
+        </button>
+
+    </main>
+
+
+    <script src="../js/content.js"></script>
+    <script src="../js/admin.js"></script>
+
+</body>
+
+</html>

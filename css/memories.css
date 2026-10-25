@@ -1,0 +1,1152 @@
+/* ==========================================
+   RESET
+========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ==========================================
+   BODY
+========================================== */
+
+body {
+    background: #050505;
+    color: white;
+
+    font-family: Georgia, serif;
+
+    overflow-x: hidden;
+}
+
+
+/* ==========================================
+   BACKGROUND
+========================================== */
+
+.memory-background {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    filter: blur(8px);
+
+    transform: scale(1.08);
+
+    z-index: -3;
+}
+
+
+/* ==========================================
+   DARK OVERLAY
+========================================== */
+
+.memory-overlay {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.65),
+            rgba(0, 0, 0, 0.82)
+        );
+
+    z-index: -2;
+
+    pointer-events: none;
+}
+
+
+/* ==========================================
+   MAIN PAGE
+========================================== */
+
+.memories-page {
+    width: 100%;
+    min-height: 100vh;
+}
+
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.memories-header {
+    min-height: 75vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 80px 20px 60px;
+}
+
+
+/* ==========================================
+   SMALL TITLE
+========================================== */
+
+.small-title {
+    font-family: Arial, sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 5px;
+
+    color: rgba(255, 255, 255, 0.6);
+
+    margin-bottom: 25px;
+
+    text-transform: uppercase;
+}
+
+
+/* ==========================================
+   MAIN TITLE
+========================================== */
+
+.memories-header h1 {
+    font-size: clamp(42px, 8vw, 90px);
+
+    font-weight: 400;
+
+    letter-spacing: 6px;
+
+    line-height: 1.1;
+
+    margin: 0;
+}
+
+
+/* ==========================================
+   SUBTITLE
+========================================== */
+
+.memory-subtitle {
+    margin-top: 25px;
+
+    font-size: clamp(16px, 2.5vw, 21px);
+
+    color: rgba(255, 255, 255, 0.65);
+
+    letter-spacing: 1px;
+}
+
+
+/* ==========================================
+   SCROLL INDICATOR
+========================================== */
+
+.scroll-indicator {
+    margin-top: 80px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+.scroll-indicator span {
+    font-family: Arial, sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+
+    color: rgba(255, 255, 255, 0.5);
+}
+
+
+.scroll-line {
+    width: 1px;
+
+    height: 55px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0.7),
+            transparent
+        );
+
+    animation:
+        scrollMove 2s ease-in-out infinite;
+}
+
+
+@keyframes scrollMove {
+
+    0% {
+        transform: translateY(0);
+        opacity: 0.4;
+    }
+
+    50% {
+        transform: translateY(8px);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 0.4;
+    }
+}
+
+
+/* ==========================================
+   MEMORY GRID
+========================================== */
+
+.memory-grid {
+
+    width: min(1100px, 92%);
+
+    margin: 0 auto;
+
+    padding: 40px 0 120px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 22px;
+}
+
+
+/* ==========================================
+   YEAR TITLE
+========================================== */
+
+.memory-year {
+
+    grid-column: 1 / -1;
+
+    margin-top: 70px;
+
+    margin-bottom: 10px;
+
+    padding-bottom: 15px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 12px;
+
+    font-weight: 400;
+
+    letter-spacing: 5px;
+
+    color:
+        rgba(255, 255, 255, 0.5);
+
+    text-align: left;
+
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.12);
+}
+
+
+/* ==========================================
+   FIRST YEAR
+========================================== */
+
+.memory-year:first-child {
+
+    margin-top: 0;
+}
+
+
+/* ==========================================
+   MEMORY CARD
+========================================== */
+
+.memory-card {
+
+    position: relative;
+
+    height: 380px;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    background: #111;
+
+    border-radius: 2px;
+}
+
+
+/* ==========================================
+   LARGE CARD
+========================================== */
+
+.memory-card.large {
+
+    height: 520px;
+}
+
+
+/* ==========================================
+   WIDE CARD
+========================================== */
+
+.memory-card.wide {
+
+    grid-column: span 2;
+
+    height: 400px;
+}
+
+
+/* ==========================================
+   IMAGE
+========================================== */
+
+.memory-card img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition:
+        transform 0.8s ease,
+        filter 0.8s ease;
+}
+
+
+/* ==========================================
+   VIDEO
+========================================== */
+
+.memory-card video {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition:
+        transform 0.8s ease,
+        filter 0.8s ease;
+}
+
+
+/* ==========================================
+   HOVER MEDIA
+========================================== */
+
+.memory-card:hover img,
+.memory-card:hover video {
+
+    transform: scale(1.05);
+
+    filter: brightness(0.8);
+}
+
+
+/* ==========================================
+   MEMORY OVERLAY
+========================================== */
+
+.memory-overlay-content {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        rgba(0, 0, 0, 0.15);
+
+    opacity: 0;
+
+    transition:
+        opacity 0.4s ease;
+
+    pointer-events: none;
+}
+
+
+.memory-card:hover
+.memory-overlay-content {
+
+    opacity: 1;
+}
+
+
+/* ==========================================
+   MEMORY ICON
+========================================== */
+
+.memory-icon {
+
+    width: 45px;
+
+    height: 45px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.7);
+
+    border-radius: 50%;
+
+    font-size: 24px;
+
+    color: white;
+
+    background:
+        rgba(0, 0, 0, 0.25);
+}
+
+
+/* ==========================================
+   FULLSCREEN VIEWER
+========================================== */
+
+.viewer {
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    background:
+        rgba(0, 0, 0, 0.96);
+
+    z-index: 1000;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+        opacity 0.4s ease,
+        visibility 0.4s ease;
+}
+
+
+.viewer.active {
+
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+/* ==========================================
+   VIEWER CONTENT
+========================================== */
+
+.viewer-content {
+
+    max-width: 90%;
+
+    max-height: 90%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+}
+
+
+/* ==========================================
+   VIEWER MEDIA
+========================================== */
+
+.viewer-media {
+
+    max-width: 80vw;
+
+    max-height: 75vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+.viewer-media img,
+.viewer-media video {
+
+    max-width: 80vw;
+
+    max-height: 75vh;
+
+    width: auto;
+
+    height: auto;
+
+    object-fit: contain;
+
+    display: block;
+}
+
+
+/* ==========================================
+   VIEWER INFO
+========================================== */
+
+.viewer-info {
+
+    margin-top: 20px;
+
+    text-align: center;
+}
+
+
+.viewer-date {
+
+    font-family: Arial, sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    color:
+        rgba(255, 255, 255, 0.45);
+
+    margin-bottom: 8px;
+
+    text-transform: uppercase;
+}
+
+
+.viewer-caption {
+
+    font-size: 17px;
+
+    color:
+        rgba(255, 255, 255, 0.85);
+
+    line-height: 1.5;
+}
+
+
+/* ==========================================
+   VIEWER CLOSE
+========================================== */
+
+.viewer-close {
+
+    position: fixed;
+
+    top: 25px;
+
+    right: 30px;
+
+    width: 45px;
+
+    height: 45px;
+
+    border: none;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 38px;
+
+    font-weight: 200;
+
+    cursor: pointer;
+
+    z-index: 1002;
+
+    opacity: 0.7;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+.viewer-close:hover {
+
+    opacity: 1;
+
+    transform: rotate(90deg);
+}
+
+
+/* ==========================================
+   PREVIOUS BUTTON
+========================================== */
+
+.viewer-prev {
+
+    position: fixed;
+
+    left: 25px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 50px;
+
+    height: 50px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.25);
+
+    border-radius: 50%;
+
+    background:
+        rgba(0, 0, 0, 0.25);
+
+    color: white;
+
+    font-size: 35px;
+
+    font-weight: 200;
+
+    cursor: pointer;
+
+    z-index: 1002;
+
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+.viewer-prev:hover {
+
+    background:
+        rgba(255, 255, 255, 0.1);
+
+    border-color:
+        rgba(255, 255, 255, 0.7);
+}
+
+
+/* ==========================================
+   NEXT BUTTON
+========================================== */
+
+.viewer-next {
+
+    position: fixed;
+
+    right: 25px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 50px;
+
+    height: 50px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.25);
+
+    border-radius: 50%;
+
+    background:
+        rgba(0, 0, 0, 0.25);
+
+    color: white;
+
+    font-size: 35px;
+
+    font-weight: 200;
+
+    cursor: pointer;
+
+    z-index: 1002;
+
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+.viewer-next:hover {
+
+    background:
+        rgba(255, 255, 255, 0.1);
+
+    border-color:
+        rgba(255, 255, 255, 0.7);
+}
+
+
+/* ==========================================
+   MIDNIGHT WAITING SECTION
+========================================== */
+
+.midnight-wait {
+
+    min-height: 65vh;
+
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 100px 20px;
+
+    position: relative;
+}
+
+
+/* ==========================================
+   WAIT LABEL
+========================================== */
+
+.wait-label {
+
+    font-family: Arial, sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 5px;
+
+    color:
+        rgba(255, 255, 255, 0.45);
+
+    margin-bottom: 25px;
+
+    text-transform: uppercase;
+}
+
+
+/* ==========================================
+   WAIT TITLE
+========================================== */
+
+.midnight-wait h2 {
+
+    font-size: clamp(28px, 5vw, 48px);
+
+    font-weight: 400;
+
+    letter-spacing: 1px;
+
+    line-height: 1.2;
+
+    margin-bottom: 18px;
+}
+
+
+/* ==========================================
+   WAIT TEXT
+========================================== */
+
+.midnight-wait > p:not(.wait-label) {
+
+    font-size: 16px;
+
+    color:
+        rgba(255, 255, 255, 0.55);
+
+    line-height: 1.6;
+
+    margin-bottom: 35px;
+}
+
+
+/* ==========================================
+   COUNTDOWN
+========================================== */
+
+.countdown {
+
+    font-family: Arial, sans-serif;
+
+    font-size: 14px;
+
+    letter-spacing: 5px;
+
+    color:
+        rgba(255, 255, 255, 0.7);
+
+    margin-bottom: 35px;
+
+    min-width: 100px;
+}
+
+
+/* ==========================================
+   MIDNIGHT BUTTON
+========================================== */
+
+#midnightBtn {
+
+    padding: 13px 35px;
+
+    background: transparent;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.25);
+
+    color:
+        rgba(255, 255, 255, 0.35);
+
+    font-family: Arial, sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    cursor: not-allowed;
+
+    transition:
+        all 0.5s ease;
+}
+
+
+/* ==========================================
+   ACTIVE MIDNIGHT BUTTON
+========================================== */
+
+#midnightBtn.active {
+
+    color: white;
+
+    border-color:
+        rgba(255, 255, 255, 0.75);
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 25px
+        rgba(255, 255, 255, 0.08);
+}
+
+
+#midnightBtn.active:hover {
+
+    background:
+        rgba(255, 255, 255, 0.08);
+
+    border-color:
+        white;
+
+    transform: translateY(-2px);
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 700px) {
+
+    .memories-header {
+
+        min-height: 70vh;
+
+        padding:
+            70px 20px 40px;
+    }
+
+
+    .memories-header h1 {
+
+        font-size: 42px;
+
+        letter-spacing: 4px;
+    }
+
+
+    .small-title {
+
+        font-size: 9px;
+
+        letter-spacing: 4px;
+    }
+
+
+    .memory-subtitle {
+
+        font-size: 15px;
+
+        padding: 0 20px;
+    }
+
+
+    .scroll-indicator {
+
+        margin-top: 55px;
+    }
+
+
+    /* ==============================
+       YEAR TITLE
+    ============================== */
+
+    .memory-year {
+
+        margin-top: 50px;
+
+        margin-bottom: 5px;
+
+        font-size: 10px;
+
+        letter-spacing: 4px;
+
+        padding-bottom: 12px;
+    }
+
+
+    /* ==============================
+       MEMORY GRID
+    ============================== */
+
+    .memory-grid {
+
+        width: 92%;
+
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+
+        padding-bottom: 80px;
+    }
+
+
+    /* ==============================
+       MEMORY CARD
+    ============================== */
+
+    .memory-card {
+
+        height: 400px;
+    }
+
+
+    .memory-card.large {
+
+        height: 450px;
+    }
+
+
+    .memory-card.wide {
+
+        grid-column: span 1;
+
+        height: 350px;
+    }
+
+
+    /* ==============================
+       VIEWER
+    ============================== */
+
+    .viewer-media {
+
+        max-width: 88vw;
+
+        max-height: 70vh;
+    }
+
+
+    .viewer-media img,
+    .viewer-media video {
+
+        max-width: 88vw;
+
+        max-height: 70vh;
+    }
+
+
+    .viewer-close {
+
+        top: 15px;
+
+        right: 15px;
+
+        font-size: 32px;
+    }
+
+
+    .viewer-prev {
+
+        left: 10px;
+
+        width: 40px;
+
+        height: 40px;
+
+        font-size: 28px;
+    }
+
+
+    .viewer-next {
+
+        right: 10px;
+
+        width: 40px;
+
+        height: 40px;
+
+        font-size: 28px;
+    }
+
+
+    .viewer-caption {
+
+        font-size: 15px;
+
+        padding: 0 20px;
+    }
+
+
+    /* ==============================
+       MIDNIGHT WAIT
+    ============================== */
+
+    .midnight-wait {
+
+        min-height: 60vh;
+
+        padding:
+            80px 20px;
+    }
+
+
+    .midnight-wait h2 {
+
+        font-size: 30px;
+    }
+
+
+    .midnight-wait > p:not(.wait-label) {
+
+        font-size: 14px;
+
+        max-width: 300px;
+    }
+
+
+    .countdown {
+
+        font-size: 12px;
+
+        letter-spacing: 4px;
+    }
+
+
+    #midnightBtn {
+
+        padding: 12px 30px;
+    }
+
+}
+
+
+/* ==========================================
+   VERY SMALL PHONES
+========================================== */
+
+@media (max-width: 400px) {
+
+    .memories-header h1 {
+
+        font-size: 34px;
+
+        letter-spacing: 3px;
+    }
+
+
+    .memory-card {
+
+        height: 350px;
+    }
+
+
+    .memory-card.large {
+
+        height: 400px;
+    }
+
+
+    .memory-year {
+
+        font-size: 9px;
+
+        letter-spacing: 3px;
+    }
+
+
+    .midnight-wait h2 {
+
+        font-size: 27px;
+    }
+
+}

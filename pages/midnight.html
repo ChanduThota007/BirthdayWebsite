@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Midnight</title>
+
+    <link rel="stylesheet" href="../css/midnight.css">
+</head>
+
+<body>
+
+    <main class="midnight-page">
+
+
+        <!-- 12:00 AM -->
+
+        <section class="midnight-opening">
+
+            <div class="glow"></div>
+
+            <p class="midnight-time">
+                12:00 AM
+            </p>
+
+            <h1>
+                And here we are...
+            </h1>
+
+        </section>
+
+
+        <!-- Emotional Section -->
+
+        <section class="message-section">
+
+            <p class="section-label">
+                A LITTLE MESSAGE
+            </p>
+
+            <h2>
+                Another year.<br>
+                Another chapter.
+            </h2>
+
+            <p class="message">
+                And somehow, another collection
+                of memories to keep forever.
+            </p>
+
+        </section>
+
+
+        <!-- Photo Section -->
+
+        <section class="single-photo-section">
+
+            <div class="photo-wrapper">
+
+                <img
+                    src="https://picsum.photos/id/1027/900/1100"
+                    alt="Special memory"
+                >
+
+            </div>
+
+            <p class="photo-caption">
+                One of my favorite memories.
+            </p>
+
+        </section>
+
+
+        <!-- Cute Section -->
+
+        <section class="cute-section">
+
+            <div class="floating-heart">
+                ♥
+            </div>
+
+            <p class="section-label">
+                ONE MORE THING
+            </p>
+
+            <h2>
+                You make ordinary days<br>
+                feel a little more special.
+            </h2>
+
+            <p class="cute-text">
+                And honestly... that's something
+                worth appreciating.
+            </p>
+
+        </section>
+
+
+        <!-- Playful Section -->
+
+        <section class="playful-section">
+
+            <p class="playful-small">
+                Wait...
+            </p>
+
+            <h2>
+                You didn't think<br>
+                I was finished, did you? 👀
+            </h2>
+
+            <button id="continueBtn">
+                CONTINUE
+            </button>
+
+            <p id="playfulReveal">
+                I knew you'd click it. 😂
+            </p>
+
+        </section>
+
+
+        <!-- Final Photo -->
+
+        <section class="final-photo-section">
+
+            <p class="final-intro">
+                One last thing...
+            </p>
+
+            <div class="final-photo">
+
+                <img
+                    src="https://picsum.photos/id/1005/1000/1200"
+                    alt="Final memory"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- Birthday Message -->
+
+        <section class="birthday-section">
+
+            <p class="section-label">
+                AND FINALLY
+            </p>
+
+            <h1>
+                Happy Birthday ❤️
+            </h1>
+
+            <p class="birthday-message">
+                I hope this year gives you
+                many more reasons to smile,
+                many more memories to make,
+                and many moments you'll always
+                want to remember.
+            </p>
+
+        </section>
+
+
+        <!-- Ending -->
+
+        <section class="ending-section">
+
+            <p>
+                Until the next story...
+            </p>
+
+            <span>
+                See you next year. ❤️
+            </span>
+
+            <small id="year"></small>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- ==========================================
+         FULLSCREEN PHOTO VIEWER
+    =========================================== -->
+
+    <div
+        id="photoViewer"
+        class="photo-viewer"
+    >
+
+        <button
+            id="photoViewerClose"
+            class="photo-viewer-close"
+            aria-label="Close photo"
+        >
+            ×
+        </button>
+
+        <img
+            id="photoViewerImage"
+            src=""
+            alt="Expanded memory"
+        >
+
+    </div>
+
+
+    <script src="../js/content.js"></script>
+    <script src="../js/midnight.js"></script>
+
+</body>
+
+</html>

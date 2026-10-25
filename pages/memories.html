@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Our Memories</title>
+
+    <link
+        rel="stylesheet"
+        href="../css/memories.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- ======================================
+         BACKGROUND
+    ======================================= -->
+
+    <div
+        class="memory-background"
+        id="memoryBackground"
+    ></div>
+
+    <div class="memory-overlay"></div>
+
+
+    <!-- ======================================
+         MAIN PAGE
+    ======================================= -->
+
+    <main class="memories-page">
+
+
+        <!-- ==================================
+             HEADER
+        =================================== -->
+
+        <header class="memories-header">
+
+            <p
+                class="small-title"
+                id="smallTitle"
+            >
+                A LITTLE PIECE OF US
+            </p>
+
+
+            <h1 id="memoryTitle">
+                OUR MEMORIES
+            </h1>
+
+
+            <p
+                class="memory-subtitle"
+                id="memorySubtitle"
+            >
+                some moments are worth keeping.
+            </p>
+
+
+            <div class="scroll-indicator">
+
+                <span>
+                    SCROLL
+                </span>
+
+                <div class="scroll-line"></div>
+
+            </div>
+
+        </header>
+
+
+        <!-- ==================================
+             MEMORY GRID
+        =================================== -->
+
+        <section
+            class="memory-grid"
+            id="memoryGrid"
+        >
+
+            <!--
+                Memory cards will be
+                automatically created
+                by memories.js
+            -->
+
+        </section>
+
+        <section class="midnight-wait">
+
+            <p class="wait-label">
+                UNTIL MIDNIGHT
+            </p>
+
+            <h2 id="waitTitle">
+                Waiting for midnight...
+            </h2>
+
+            <p id="waitText">
+                There's still one more thing waiting.
+            </p>
+
+            <div id="countdown" class="countdown">
+                00:00:00
+            </div>
+
+            <button id="midnightBtn" disabled>
+                WAITING...
+            </button>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- ======================================
+         FULLSCREEN VIEWER
+    ======================================= -->
+
+    <div
+        class="viewer"
+        id="viewer"
+    >
+
+        <button
+            class="viewer-close"
+            id="viewerClose"
+        >
+            ×
+        </button>
+
+
+        <button
+            class="viewer-prev"
+            id="viewerPrev"
+        >
+            ‹
+        </button>
+
+
+        <div class="viewer-content">
+
+            <div
+                id="viewerMedia"
+                class="viewer-media"
+            ></div>
+
+
+            <div class="viewer-info">
+
+                <p
+                    id="viewerDate"
+                    class="viewer-date"
+                ></p>
+
+                <p
+                    id="viewerCaption"
+                    class="viewer-caption"
+                ></p>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="viewer-next"
+            id="viewerNext"
+        >
+            ›
+        </button>
+
+    </div>
+
+
+    <!-- ======================================
+         JAVASCRIPT
+    ======================================= -->
+
+    <script src="../js/content.js"></script>
+
+    <script src="../js/memories.js"></script>
+
+
+</body>
+
+</html>
