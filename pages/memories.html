@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
 
     <meta
@@ -16,16 +15,13 @@
         rel="stylesheet"
         href="../css/memories.css"
     >
-
 </head>
-
 
 <body>
 
-
-    <!-- ======================================
+    <!-- ==========================================
          BACKGROUND
-    ======================================= -->
+    =========================================== -->
 
     <div
         class="memory-background"
@@ -35,16 +31,41 @@
     <div class="memory-overlay"></div>
 
 
-    <!-- ======================================
+    <!-- ==========================================
+         BACKGROUND MUSIC
+    =========================================== -->
+
+    <audio
+        id="backgroundMusic"
+        src="../music/memories.mp3"
+        loop
+        preload="auto"
+    ></audio>
+
+
+    <!-- ==========================================
+         MUSIC BUTTON
+    =========================================== -->
+
+    <button
+        id="musicToggle"
+        class="music-toggle"
+        aria-label="Toggle music"
+    >
+        ♪
+    </button>
+
+
+    <!-- ==========================================
          MAIN PAGE
-    ======================================= -->
+    =========================================== -->
 
     <main class="memories-page">
 
 
-        <!-- ==================================
+        <!-- ======================================
              HEADER
-        =================================== -->
+        ======================================= -->
 
         <header class="memories-header">
 
@@ -55,11 +76,9 @@
                 A LITTLE PIECE OF US
             </p>
 
-
             <h1 id="memoryTitle">
                 OUR MEMORIES
             </h1>
-
 
             <p
                 class="memory-subtitle"
@@ -68,6 +87,8 @@
                 some moments are worth keeping.
             </p>
 
+
+            <!-- SCROLL INDICATOR -->
 
             <div class="scroll-indicator">
 
@@ -82,22 +103,20 @@
         </header>
 
 
-        <!-- ==================================
+        <!-- ======================================
              MEMORY GRID
-        =================================== -->
+        ======================================= -->
 
         <section
             class="memory-grid"
             id="memoryGrid"
         >
-
-            <!--
-                Memory cards will be
-                automatically created
-                by memories.js
-            -->
-
         </section>
+
+
+        <!-- ======================================
+             MIDNIGHT WAIT
+        ======================================= -->
 
         <section class="midnight-wait">
 
@@ -113,28 +132,42 @@
                 There's still one more thing waiting.
             </p>
 
-            <div id="countdown" class="countdown">
+
+            <!-- COUNTDOWN -->
+
+            <div
+                id="countdown"
+                class="countdown"
+            >
                 00:00:00
             </div>
 
-            <button id="midnightBtn" disabled>
+
+            <!-- MIDNIGHT BUTTON -->
+
+            <button
+                id="midnightBtn"
+                disabled
+            >
                 WAITING...
             </button>
 
         </section>
 
-
     </main>
 
 
-    <!-- ======================================
-         FULLSCREEN VIEWER
-    ======================================= -->
+    <!-- ==========================================
+         FULLSCREEN MEMORY VIEWER
+    =========================================== -->
 
     <div
         class="viewer"
         id="viewer"
     >
+
+
+        <!-- CLOSE -->
 
         <button
             class="viewer-close"
@@ -144,6 +177,8 @@
         </button>
 
 
+        <!-- PREVIOUS -->
+
         <button
             class="viewer-prev"
             id="viewerPrev"
@@ -151,6 +186,8 @@
             ‹
         </button>
 
+
+        <!-- VIEWER CONTENT -->
 
         <div class="viewer-content">
 
@@ -177,6 +214,8 @@
         </div>
 
 
+        <!-- NEXT -->
+
         <button
             class="viewer-next"
             id="viewerNext"
@@ -187,14 +226,13 @@
     </div>
 
 
-    <!-- ======================================
+    <!-- ==========================================
          JAVASCRIPT
-    ======================================= -->
+    =========================================== -->
 
     <script src="../js/content.js"></script>
 
     <script src="../js/memories.js"></script>
-
 
 </body>
 

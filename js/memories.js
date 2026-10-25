@@ -1,4 +1,122 @@
 // ==========================================
+// BACKGROUND MUSIC
+// ==========================================
+
+const backgroundMusic =
+    document.getElementById("backgroundMusic");
+
+const musicToggle =
+    document.getElementById("musicToggle");
+
+backgroundMusic.volume = 0.45;
+
+
+// ==========================================
+// START MUSIC
+// ==========================================
+
+function startMusic() {
+
+    if (!backgroundMusic.paused) {
+        return;
+    }
+
+    backgroundMusic.play()
+        .then(function () {
+
+            musicToggle.classList.add(
+                "playing"
+            );
+
+            console.log(
+                "Memory music started"
+            );
+
+        })
+        .catch(function (error) {
+
+            console.log(
+                "Music waiting for user interaction:",
+                error
+            );
+
+        });
+}
+
+
+// ==========================================
+// TRY MUSIC WHEN PAGE LOADS
+// ==========================================
+
+startMusic();
+
+
+// ==========================================
+// START MUSIC ON USER INTERACTION
+// ==========================================
+
+function startMusicOnInteraction(event) {
+
+    // Don't interfere with the music button
+    if (
+        event &&
+        event.target === musicToggle
+    ) {
+        return;
+    }
+
+    startMusic();
+
+    document.removeEventListener(
+        "pointerdown",
+        startMusicOnInteraction
+    );
+
+    document.removeEventListener(
+        "keydown",
+        startMusicOnInteraction
+    );
+}
+
+
+document.addEventListener(
+    "pointerdown",
+    startMusicOnInteraction
+);
+
+document.addEventListener(
+    "keydown",
+    startMusicOnInteraction
+);
+
+
+// ==========================================
+// MUSIC BUTTON
+// ==========================================
+
+musicToggle.addEventListener(
+    "click",
+    function () {
+
+        if (backgroundMusic.paused) {
+
+            startMusic();
+
+        } else {
+
+            backgroundMusic.pause();
+
+            musicToggle.classList.remove(
+                "playing"
+            );
+
+        }
+
+    }
+);
+
+
+// ==========================================
 // GET MEMORY CONTENT
 // ==========================================
 
@@ -117,12 +235,18 @@ memoriesContent.years.forEach(
             function (memory) {
 
 
-                // Add year information
+                // ==================================
+                // ADD YEAR INFORMATION
+                // ==================================
+
                 memory.year =
                     yearData.year;
 
 
-                // Add memory to viewer array
+                // ==================================
+                // ADD MEMORY TO VIEWER ARRAY
+                // ==================================
+
                 const memoryIndex =
                     memories.length;
 
@@ -248,6 +372,7 @@ memoriesContent.years.forEach(
                 overlay.appendChild(
                     icon
                 );
+
 
                 card.appendChild(
                     overlay
@@ -517,6 +642,7 @@ document.addEventListener(
         ) {
 
             return;
+
         }
 
 
@@ -548,7 +674,6 @@ document.addEventListener(
 
     }
 );
-
 
 
 // ==========================================
@@ -664,6 +789,7 @@ function isBirthdayMidnightActive() {
 // ==========================================
 
 function updateCountdown() {
+
 
     // ======================================
     // MIDNIGHT HAS ARRIVED
@@ -807,8 +933,57 @@ midnightBtn.addEventListener(
             !midnightBtn.disabled
         ) {
 
-            window.location.href =
-                "midnight.html";
+            // ==================================
+            // FADE OUT MEMORY MUSIC
+            // ==================================
+
+            let volume =
+                backgroundMusic.volume;
+
+
+            const fadeMusic =
+                setInterval(
+                    function () {
+
+                        volume -= 0.05;
+
+
+                        if (
+                            volume <= 0
+                        ) {
+
+                            volume = 0;
+
+                            clearInterval(
+                                fadeMusic
+                            );
+
+                            backgroundMusic.pause();
+
+                        }
+
+
+                        backgroundMusic.volume =
+                            volume;
+
+                    },
+                    50
+                );
+
+
+            // ==================================
+            // GO TO MIDNIGHT PAGE
+            // ==================================
+
+            setTimeout(
+                function () {
+
+                    window.location.href =
+                        "midnight.html";
+
+                },
+                600
+            );
 
         }
 

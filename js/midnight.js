@@ -1,23 +1,146 @@
 // ==========================================
+// BACKGROUND MUSIC
+// ==========================================
+
+const backgroundMusic =
+    document.getElementById("backgroundMusic");
+
+const musicToggle =
+    document.getElementById("musicToggle");
+
+backgroundMusic.volume = 0.5;
+
+
+// ==========================================
+// START MUSIC
+// ==========================================
+
+function startMusic() {
+
+    if (!backgroundMusic.paused) {
+        return;
+    }
+
+    backgroundMusic.play()
+        .then(function () {
+
+            musicToggle.classList.add(
+                "playing"
+            );
+
+            console.log(
+                "Birthday music started"
+            );
+
+        })
+        .catch(function (error) {
+
+            console.log(
+                "Birthday music waiting for interaction:",
+                error
+            );
+
+        });
+}
+
+
+// ==========================================
+// TRY MUSIC ON PAGE LOAD
+// ==========================================
+
+startMusic();
+
+
+// ==========================================
+// START MUSIC ON FIRST INTERACTION
+// ==========================================
+
+function startMusicOnInteraction(event) {
+
+    if (
+        event &&
+        event.target === musicToggle
+    ) {
+        return;
+    }
+
+    startMusic();
+
+    document.removeEventListener(
+        "pointerdown",
+        startMusicOnInteraction
+    );
+
+    document.removeEventListener(
+        "keydown",
+        startMusicOnInteraction
+    );
+}
+
+
+document.addEventListener(
+    "pointerdown",
+    startMusicOnInteraction
+);
+
+document.addEventListener(
+    "keydown",
+    startMusicOnInteraction
+);
+
+
+// ==========================================
+// MUSIC BUTTON
+// ==========================================
+
+musicToggle.addEventListener(
+    "click",
+    function () {
+
+        if (backgroundMusic.paused) {
+
+            startMusic();
+
+        } else {
+
+            backgroundMusic.pause();
+
+            musicToggle.classList.remove(
+                "playing"
+            );
+
+        }
+
+    }
+);
+
+
+// ==========================================
 // GET MIDNIGHT CONTENT
 // ==========================================
 
-const content = birthdayContent.midnight;
+const content =
+    birthdayContent.midnight;
 
 
 // ==========================================
-// MIDNIGHT OPENING
+// OPENING
 // ==========================================
 
-document.querySelector(".midnight-time").textContent =
+document.querySelector(
+    ".midnight-time"
+).textContent =
     content.openingTime;
 
-document.querySelector(".midnight-opening h1").textContent =
+
+document.querySelector(
+    ".midnight-opening h1"
+).textContent =
     content.openingText;
 
 
 // ==========================================
-// MESSAGE SECTION
+// MESSAGE
 // ==========================================
 
 document.querySelector(
@@ -43,10 +166,14 @@ document.querySelector(
 // ==========================================
 
 const specialPhoto =
-    document.querySelector(".photo-wrapper img");
+    document.querySelector(
+        ".photo-wrapper img"
+    );
+
 
 specialPhoto.src =
     "../" + content.photo.image;
+
 
 specialPhoto.alt =
     content.photo.caption;
@@ -119,10 +246,14 @@ document.querySelector(
 
 
 const finalPhoto =
-    document.querySelector(".final-photo img");
+    document.querySelector(
+        ".final-photo img"
+    );
+
 
 finalPhoto.src =
     "../" + content.final.image;
+
 
 finalPhoto.alt =
     content.final.intro;
@@ -167,7 +298,7 @@ document.querySelector(
 
 
 // ==========================================
-// CURRENT YEAR
+// YEAR
 // ==========================================
 
 const yearElement =
@@ -192,7 +323,9 @@ continueBtn.addEventListener(
     "click",
     function () {
 
-        playfulReveal.classList.add("show");
+        playfulReveal.classList.add(
+            "show"
+        );
 
         continueBtn.textContent =
             "I KNEW IT";
@@ -202,7 +335,7 @@ continueBtn.addEventListener(
 
 
 // ==========================================
-// PHOTO FULLSCREEN VIEWER
+// PHOTO VIEWER
 // ==========================================
 
 const photoViewer =
@@ -225,14 +358,18 @@ function openPhotoViewer(photo) {
         photo.src;
 
     photoViewerImage.alt =
-        photo.alt || "Memory";
+        photo.alt ||
+        "Memory";
 
-    photoViewer.classList.add("active");
+
+    photoViewer.classList.add(
+        "active"
+    );
+
 
     document.body.classList.add(
         "photo-viewer-open"
     );
-
 }
 
 
@@ -242,18 +379,25 @@ function openPhotoViewer(photo) {
 
 function closePhotoViewer() {
 
-    photoViewer.classList.remove("active");
+    photoViewer.classList.remove(
+        "active"
+    );
+
 
     document.body.classList.remove(
         "photo-viewer-open"
     );
 
-    setTimeout(function () {
 
-        photoViewerImage.src = "";
+    setTimeout(
+        function () {
 
-    }, 350);
+            photoViewerImage.src =
+                "";
 
+        },
+        350
+    );
 }
 
 
@@ -265,7 +409,9 @@ specialPhoto.addEventListener(
     "click",
     function () {
 
-        openPhotoViewer(specialPhoto);
+        openPhotoViewer(
+            specialPhoto
+        );
 
     }
 );
@@ -279,7 +425,9 @@ finalPhoto.addEventListener(
     "click",
     function () {
 
-        openPhotoViewer(finalPhoto);
+        openPhotoViewer(
+            finalPhoto
+        );
 
     }
 );
@@ -320,7 +468,7 @@ photoViewer.addEventListener(
 
 
 // ==========================================
-// ESC KEY
+// ESCAPE KEY
 // ==========================================
 
 document.addEventListener(
